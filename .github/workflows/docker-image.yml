@@ -22,12 +22,12 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository }}/my-image-name
+        IMAGE_ID=ghcr.io/${{ github.repository }}
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
         docker build . --file Dockerfile --tag $IMAGE_ID:latest
 
     - name: Push To Registry
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository }}/my-image-name
+        IMAGE_ID=ghcr.io/${{ github.repository }}
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
         docker push $IMAGE_ID:latest
